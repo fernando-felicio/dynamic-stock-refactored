@@ -22,10 +22,37 @@ public class Program {
 		
 		System.out.print("Quantity in stock: ");
 		product.quantity = scanner.nextInt();
+		scanner.nextLine();
 		
 		System.out.println(product.name + "," + product.price + "," + product.quantity);
 		
-		System.out.println(product);
+		System.out.println("Product Data: " + product);
+		
+		String userOption;
+		
+		do {
+			System.out.println("Type [A] to ADD to stock or [R] to REMOVE to stock");
+			userOption = scanner.nextLine().toLowerCase();
+			
+			if (userOption.equals("a")) {
+				System.out.println("Enter the number of products to be added in stock: ");
+				int quantity = scanner.nextInt();
+				scanner.nextLine();
+				product.addProducts(quantity);
+				System.out.println("Product Data: " + product);
+			}else if (userOption.equals("r")) {
+				System.out.println("Enter the number of products to be removed from stock: ");
+				int remove = scanner.nextInt();
+				scanner.nextLine();
+				product.removeProducts(remove);
+				System.out.println("Product Data: " + product);
+			}else {
+				System.out.println("Invalid option. Please type [A] to ADD or [R] to REMOVE.");
+			}
+			
+		} while (product.quantity > 0 || (userOption.equals("a") || userOption.equals("r")));
+		
+			
 		
 		scanner.close();
 

@@ -14,12 +14,18 @@ public class Product {
 		this.quantity += quantity;
 	}
 	
-	public void removeProducts(int quanity) {
-		this.quantity -= quantity;
+	public void removeProducts(int quantity) {
+		 if(quantity <= this.quantity) {
+		        this.quantity -= quantity;
+		        System.out.println("Removing " + quantity + " products from " + this.quantity + " in stock.");
+		        System.out.println("After removal, " + this.quantity + " products remaining in stock.");
+		    } else {
+		        System.out.println("Not enough products in stock to remove.");
+		    }
 	}
 	
 	public String toString() {
-		return "Product data: " + name 
+		return name 
 				+ ", $ " + String.format("%.2f", price) 
 				+ ", " + quantity + " units"
 				+ ", Total: $ " + String.format("%.2f", totalValueInStock());
