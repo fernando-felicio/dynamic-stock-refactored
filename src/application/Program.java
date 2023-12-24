@@ -25,6 +25,8 @@ public class Program {
 		
 		System.out.println(product.name + "," + product.price + "," + product.quantity);
 		
+		System.out.println(product);
+		
 		scanner.close();
 
 	}
